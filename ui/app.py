@@ -20,7 +20,7 @@ def query_llm(message, history):
 with gr.Blocks(css="footer {display:none !important}") as demo:
     gr.Markdown("## 💬 LocalGPT Chat — Self-Hosted ChatGPT UI\n_Docker Model Runner + FastAPI + Gradio_")
 
-    chatbot = gr.Chatbot(label="LocalGPT", type="messages")
+    chatbot = gr.Chatbot(label="LocalGPT")
     msg_input = gr.Textbox(placeholder="Type your message here...", show_label=False)
     clear_btn = gr.Button("🧹 Clear")
 
@@ -28,4 +28,3 @@ with gr.Blocks(css="footer {display:none !important}") as demo:
     clear_btn.click(fn=lambda: ([], ""), outputs=[chatbot, msg_input])
 
 demo.launch(server_name="0.0.0.0", server_port=8501)
-
